@@ -1,65 +1,57 @@
-// Element Initilazation
-let inputBox = document.querySelector("#input-box")
-let hint = document.querySelector("#hint")
-hint.innerHTML = ""
+let inputBox = document.querySelector("#input-box");
+let hint = document.querySelector("#hint");
 
-// Generate Random Number
-let num = Math.floor(Math.random()*100) + 1
-let turn = 10
-let isGameOver = false
+hint.innerHTML = "";
+document.querySelector("#play-again").style.display = "none";
 
-document.querySelector("#check").addEventListener("click", submit)
+let num = Math.floor(Math.random()*100 + 1);
+let turn = 10;
+let isGameOver = false;
+
+document.querySelector("#guess").addEventListener("click", guess);
 document.addEventListener("keypress", (e)=>{
     if(e.key == "Enter"){
-        e.preventDefault()
-        submit()
+        e.preventDefault();
+        guess();
     }
 })
 
-
-function submit(){
-    let enteredNum = parseInt(inputBox.value.toString())
+function guess(){
+    let enteredNum = parseInt(inputBox.value);
     if(enteredNum === 12356){
-        alert(num)
+        alert(num);
         inputBox.value = ""
     }
-    else if(enteredNum>=1 && enteredNum<=100 && !isGameOver){
-        if(enteredNum<num){
-            hint.innerHTML = "Your guess " + enteredNum +" is too low"
+    else if(enteredNum >= 1 && enteredNum <= 100 && !isGameOver){
+        if(enteredNum > num){
+            hint.innerHTML = "Your guess " + enteredNum + " is too high";
         }
-        else if(enteredNum>num){
-            hint.innerHTML = "Your guess " + enteredNum +" is too high"
+        else if(enteredNum < num){
+            hint.innerHTML = "Your guess " + enteredNum + " is too low";
         }
         else{
-            hint.innerHTML = "Correct answer !"
-            isGameOver = true
+            hint.innerHTML = "Correct answer ! ";
+            isGameOver = true;
             document.querySelector("#play-again").style.display = "block"
         }
-        inputBox.value = ""
-        turn--
-        cheakTurn();
+        inputBox.value = "";
+        turn--;
+        if(turn < 0){
+            hint.innerHTML = "You lose !";
+            isGameOver = true;
+            document.querySelector("#play-again").style.display = "block"
+        }
     }
     else if(!isGameOver){
-        hint.innerHTML = "Plese enter a valid number"
+        hint.innerHTML = "Please enter valid number"
     }
-}
-
-function cheakTurn(){
-    if(turn <= 0){
-        hint.innerHTML = "You loose !"
-        gameOver()
-    }
-}
-
-function gameOver(){
-    document.querySelector("#play-again").style.display = "block"
-    isGameOver = true
 }
 
 document.querySelector("#play-again").addEventListener("click", ()=>{
-    num = Math.floor(Math.random()*100) + 1
-    turn = 10
-    hint.innerHTML = ""
-    document.querySelector("#play-again").style.display = "none"
+    num = Math.floor(Math.random()*100 + 1);
+    turn = 10;
+    hint.innerHTML = "";
+    document.querySelector("#play-again").style.display = "none";
     inputBox.value = ""
+    isGameOver = false;
 })
