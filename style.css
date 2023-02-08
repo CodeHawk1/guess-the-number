@@ -1,0 +1,140 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap'); */
+
+*{
+    color: white;
+    font-family: sans-serif;
+    transition: 0.2s ease-in-out;
+    user-select: none;
+    font-weight: 700;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #500474;
+    display: flex;
+}
+
+.image{
+    width: 40vw;
+    height: 90vh;
+    position: absolute;
+    top: 10vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.image img{
+    width: 100%;
+}
+
+#main-game{
+    margin: 30vh 0 0 40vw;
+}
+
+#main-game h2{
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    text-shadow: #000 2px 2px 2px;
+}
+
+
+input:focus{
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+#input-box, #check{
+    height: 50px;
+    width: 150px;
+    font-size: 2rem;
+    text-align: center;
+    border: none;
+    box-shadow: #000 2px 2px 2px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: black;
+}
+
+#check{
+    background-color: #efb6ff;
+    width: 120px;
+    height: 53px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    vertical-align: top;
+}
+
+#check:hover{
+    background-color: #e173ff;
+}
+
+#hint{
+    margin-top: 10px;
+    font-size: 1.5rem;
+    text-shadow: #000 2px 2px 2px;
+}
+
+#play-again{
+    margin-top: 10px;
+    font-size: 1.5rem;
+    width: fit-content;
+    cursor: pointer;
+    background-color: #efb6ff;
+    box-shadow: #000 2px 2px 2px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #000;
+    display: none;
+}
+
+#play-again:hover{
+    background-color: #e173ff;
+}
+
+.how-to-play{
+    width: 30vw;
+    text-align: justify;
+    margin: 25vh 2vw auto 3vw;
+    background-color: #3c0046;
+    padding: 6vh 3vw 3vh;
+}
+
+h3{
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.how-to-play ul{
+    padding: 3px;
+}
+
+@media only screen and (max-width: 900px){
+body{
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.image{
+    width: 90vw;
+    top: 0;
+}
+
+#main-game{
+    margin: 30vh 0 0 5vw;
+    min-height: 40vh;
+}
+
+.how-to-play{
+    width: 90vw;
+    padding: 5vh 5vw;
+    margin: 1vh 10vw 10vh 10vw;
+}
+}
